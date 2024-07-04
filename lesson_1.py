@@ -1,9 +1,13 @@
 # создание класса
+# TODO: разобраться с функцией __repr__ and self
+# TODO: понять как включать таблицы в csv файлах
+
 
 class Item:
     pay_rate = 0.8  # after 20% discount
 
     all = []
+
     def __init__(self, name: str, price: float, quantity=0):
         # проверка
         assert price >= 0, f"Долбаеб, {price} цена не может быть отрицательной"
@@ -14,7 +18,6 @@ class Item:
         self.name = name
         self.price = price
         self.quantity = quantity
-
 
         #
         Item.all.append(self)
@@ -31,17 +34,20 @@ class Item:
     def apply_discount(self):
         self.price = self.price * self.pay_rate
 
-
-#TODO: разобраться с функцией __repr__ and self
-
+    @classmethod
+    def instantiate_from_csv(cls):
+        pass
 
     def __repr__(self):
         return f"Item('{self.name}', '{self.price}', '{self.quantity}')"
 
-item1 = Item("Phone", 100, 1)
-item2 = Item("Laptop", 1000, 3)
-item3 = Item("Cable", 10, 5)
-item4 = Item("Mouse", 50, 5)
-item5 = Item("Keyboard", 75, 5)
 
-print(Item.all)
+# item1 = Item("Phone", 100, 1)
+# item2 = Item("Laptop", 1000, 3)
+# item3 = Item("Cable", 10, 5)
+# item4 = Item("Mouse", 50, 5)
+# item5 = Item("Keyboard", 75, 5)
+
+#print(Item.all)
+
+Item.instantiate_from_csv()
