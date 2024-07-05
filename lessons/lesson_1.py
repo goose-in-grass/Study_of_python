@@ -1,10 +1,12 @@
+
 class Point:
     color = "red"
     circle = 2
 
-    def set_coords(self):
+a = Point()
+b = Point()
 
-        print("Вызов метода set_coords" + str(self))
-
-#self - указатель на экземляр класса и нужен для работы с экземплярами
-pt = Point()
+a.x = 1
+a.y = 2
+b.x = 10
+b.y = 20
